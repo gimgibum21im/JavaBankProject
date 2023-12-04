@@ -19,7 +19,25 @@ public class MainFrame extends JFrame {
         SignUpButton signUpBtn = new SignUpButton();
         cp.add(signUpBtn);
 
-        // JFrame 설정
+        // 익명 클래스 test
+        JButton testBtn = new JButton("testBtn");
+        cp.add(testBtn);
+        testBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("test");
+
+                dispose(); // 현재 frame창 닫음
+
+                // 새 프레임 생성 테스트 및 설정
+                JFrame testP = new JFrame();
+                setTitle("MainFrame");
+                testP.setSize(500, 500);
+                testP.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                testP.setVisible(true);
+            }
+        });
+
+        // MainFrame 설정
         setTitle("MainFrame");
         setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

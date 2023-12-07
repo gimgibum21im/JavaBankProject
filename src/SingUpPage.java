@@ -1,13 +1,23 @@
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class SingUpPage extends JFrame {
     private JLabel lblId;
     private JLabel lblPw;
+    private JButton btnBack;
     private JButton btnSignUp;
     private JTextField tfId;
     private JPasswordField tfPw;
@@ -22,7 +32,7 @@ public class SingUpPage extends JFrame {
     public void init() {
         // 사이즈 통일화
         Dimension lblSize = new Dimension(80, 30);
-        Dimension btnSize = new Dimension(90, 80);
+        Dimension btnSize = new Dimension(100, 25);
         int tfSize = 10;
 
         // ID, PW 레이블 생성
@@ -35,6 +45,10 @@ public class SingUpPage extends JFrame {
         tfId = new JTextField(tfSize);
         tfPw = new JPasswordField(tfSize);
 
+        // 뒤로가기 버튼 생성
+        btnBack = new JButton("뒤로가기");
+        btnBack.setPreferredSize(btnSize);
+
         // 회원가입 버튼 생성
         btnSignUp = new JButton("회원가입");
         btnSignUp.setPreferredSize(btnSize);
@@ -44,8 +58,8 @@ public class SingUpPage extends JFrame {
         // FlowLayout 왼쪽 정렬
         FlowLayout flowLeft = new FlowLayout(FlowLayout.LEFT);
 
-        // pnlWest(pnlId, pnlPw)
-        JPanel pnlWest = new JPanel(new GridLayout(0, 1));
+        // pnlNorth(pnlId, pnlPw)
+        JPanel pnlNorth = new JPanel(new GridLayout(0, 1));
 
         JPanel pnlId = new JPanel(flowLeft);
         pnlId.add(lblId);
@@ -55,29 +69,37 @@ public class SingUpPage extends JFrame {
         pnlPw.add(lblPw);
         pnlPw.add(tfPw);
 
-        pnlWest.add(pnlId);
-        pnlWest.add(pnlPw);
+        pnlNorth.add(pnlId);
+        pnlNorth.add(pnlPw);
 
-        JPanel pnlEast = new JPanel();
-        pnlEast.add(btnSignUp);
+        JPanel pnlSouth = new JPanel();
+        pnlSouth.add(btnBack);
+        pnlSouth.add(btnSignUp);
 
         // 공백 생성
-        pnlWest.setBorder(new EmptyBorder(0, 20, 0, 20));
-        pnlEast.setBorder(new EmptyBorder(0, 0, 10, 0));
+        pnlNorth.setBorder(new EmptyBorder(0, 20, 0, 20));
+        pnlSouth.setBorder(new EmptyBorder(0, 0, 10, 0));
 
         // 패널 배치위치
-        add(pnlWest, BorderLayout.WEST);
-        add(pnlEast, BorderLayout.EAST);
+        add(pnlNorth, BorderLayout.NORTH);
+        add(pnlSouth, BorderLayout.SOUTH);
     }
 
     public void addListeners() {
 
+        // 뒤로가기 버튼 리스너
+        btnBack.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // 로그인 창 열기
+                new LoginPage();
+                dispose(); // 창닫기
+                System.out.println("login");
+            }
+        });
+
         // 회원가입 버튼 리스너
         btnSignUp.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // 회원가입 창 열기
-                new SingUpPage();
-                dispose(); // 창닫기
                 System.out.println("signUp");
             }
         });

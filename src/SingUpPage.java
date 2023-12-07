@@ -14,15 +14,17 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-public class LoginPage extends JFrame {
+public class SingUpPage extends JFrame {
     private JLabel lblId;
     private JLabel lblPw;
-    private JButton btnLogin;
+    private JLabel lblName;
+    private JButton btnBack;
     private JButton btnSignUp;
     private JTextField tfId;
+    private JTextField tfName;
     private JPasswordField tfPw;
 
-    public LoginPage() {
+    public SingUpPage() {
         init();
         setDisplay();
         addListeners();
@@ -40,14 +42,17 @@ public class LoginPage extends JFrame {
         lblId.setPreferredSize(lblSize);
         lblPw = new JLabel("Password");
         lblPw.setPreferredSize(lblSize);
+        lblName = new JLabel("이름");
+        lblName.setPreferredSize(lblSize);
 
         // ID, PW 텍스트 생성
         tfId = new JTextField(tfSize);
         tfPw = new JPasswordField(tfSize);
+        tfName = new JTextField(tfSize);
 
-        // 로그인 버튼 생성
-        btnLogin = new JButton("로그인");
-        btnLogin.setPreferredSize(btnSize);
+        // 뒤로가기 버튼 생성
+        btnBack = new JButton("뒤로가기");
+        btnBack.setPreferredSize(btnSize);
 
         // 회원가입 버튼 생성
         btnSignUp = new JButton("회원가입");
@@ -69,11 +74,16 @@ public class LoginPage extends JFrame {
         pnlPw.add(lblPw);
         pnlPw.add(tfPw);
 
+        JPanel pnlName = new JPanel(flowLeft);
+        pnlName.add(lblName);
+        pnlName.add(tfName);
+
         pnlNorth.add(pnlId);
         pnlNorth.add(pnlPw);
+        pnlNorth.add(pnlName);
 
         JPanel pnlSouth = new JPanel();
-        pnlSouth.add(btnLogin);
+        pnlSouth.add(btnBack);
         pnlSouth.add(btnSignUp);
 
         // 공백 생성
@@ -86,11 +96,11 @@ public class LoginPage extends JFrame {
     }
 
     public void addListeners() {
-
-        // 로그인 버튼 리스너
-        btnLogin.addActionListener(new ActionListener() {
+        // 뒤로가기 버튼 리스너
+        btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // 로그인 창 열기
+                new LoginPage();
                 dispose(); // 창닫기
                 System.out.println("login");
             }
@@ -99,23 +109,16 @@ public class LoginPage extends JFrame {
         // 회원가입 버튼 리스너
         btnSignUp.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // 회원가입 창 열기
-                new SingUpPage();
-                dispose(); // 창닫기
                 System.out.println("signUp");
             }
         });
     }
 
     public void showFrame() {
-        setTitle("Login");
+        setTitle("Sign up");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         pack(); // component에 맞게 창 생성
         setLocationRelativeTo(null); // 화면 가운데 생성
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        new LoginPage();
     }
 }

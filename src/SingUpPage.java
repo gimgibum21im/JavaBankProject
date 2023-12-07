@@ -17,9 +17,11 @@ import javax.swing.border.EmptyBorder;
 public class SingUpPage extends JFrame {
     private JLabel lblId;
     private JLabel lblPw;
+    private JLabel lblName;
     private JButton btnBack;
     private JButton btnSignUp;
     private JTextField tfId;
+    private JTextField tfName;
     private JPasswordField tfPw;
 
     public SingUpPage() {
@@ -40,10 +42,13 @@ public class SingUpPage extends JFrame {
         lblId.setPreferredSize(lblSize);
         lblPw = new JLabel("Password");
         lblPw.setPreferredSize(lblSize);
+        lblName = new JLabel("이름");
+        lblName.setPreferredSize(lblSize);
 
         // ID, PW 텍스트 생성
         tfId = new JTextField(tfSize);
         tfPw = new JPasswordField(tfSize);
+        tfName = new JTextField(tfSize);
 
         // 뒤로가기 버튼 생성
         btnBack = new JButton("뒤로가기");
@@ -69,8 +74,13 @@ public class SingUpPage extends JFrame {
         pnlPw.add(lblPw);
         pnlPw.add(tfPw);
 
+        JPanel pnlName = new JPanel(flowLeft);
+        pnlName.add(lblName);
+        pnlName.add(tfName);
+
         pnlNorth.add(pnlId);
         pnlNorth.add(pnlPw);
+        pnlNorth.add(pnlName);
 
         JPanel pnlSouth = new JPanel();
         pnlSouth.add(btnBack);
@@ -86,7 +96,6 @@ public class SingUpPage extends JFrame {
     }
 
     public void addListeners() {
-
         // 뒤로가기 버튼 리스너
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

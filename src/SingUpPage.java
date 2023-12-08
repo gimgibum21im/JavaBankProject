@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -109,9 +110,44 @@ public class SingUpPage extends JFrame {
         // 회원가입 버튼 리스너
         btnSignUp.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("signUp");
+                if (!isBlank()) {
+
+                }
             }
         });
+    }
+
+    public String getTfId() {
+        return tfId.getText();
+    }
+
+    public String getTfPw() {
+        return String.valueOf(tfPw.getPassword());
+    }
+
+    public String getTfName() {
+        return tfName.getText();
+    }
+
+    public boolean isBlank() {
+        boolean result = false;
+        // requestFocus 해당 tf로 강제로 이동
+        if (tfId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "아이디를 입력해주세요.");
+            tfId.requestFocus();
+            return true;
+        }
+        if (String.valueOf(tfPw.getPassword()).isEmpty()) {
+            JOptionPane.showMessageDialog(null, "비밀번호를 입력해주세요.");
+            tfPw.requestFocus();
+            return true;
+        }
+        if (tfName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "이름을 입력해주세요.");
+            tfName.requestFocus();
+            return true;
+        }
+        return result;
     }
 
     public void showFrame() {

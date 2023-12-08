@@ -25,6 +25,8 @@ public class SingUpPage extends JFrame {
     private JTextField tfName;
     private JPasswordField tfPw;
 
+    private MultiUserController multiUserController;
+
     public SingUpPage() {
         init();
         setDisplay();
@@ -112,6 +114,7 @@ public class SingUpPage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (!isBlank()) {
                     User newUser = new User(getTfId(), getTfPw(), getTfName());
+                    multiUserController = new MultiUserController(newUser);
                 }
             }
         });

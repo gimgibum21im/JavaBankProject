@@ -111,7 +111,7 @@ public class SingUpPage extends JFrame {
         btnSignUp.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!isBlank()) {
-
+                    User newUser = new User(getTfId(), getTfPw(), getTfName());
                 }
             }
         });

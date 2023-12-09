@@ -102,7 +102,6 @@ public class LoginPage extends JFrame {
                 // 회원가입 창 열기
                 new SingUpPage();
                 dispose(); // 창닫기
-                System.out.println("signUp");
             }
         });
     }

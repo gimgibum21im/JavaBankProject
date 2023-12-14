@@ -115,6 +115,10 @@ public class SingUpPage extends JFrame {
                 if (!isBlank()) {
                     User newUser = new User(getTfId(), getTfPw(), getTfName());
                     multiUserController = new MultiUserController(newUser);
+                    if (multiUserController.processSignUp()) {
+                        new LoginPage();
+                        dispose();
+                    }
                 }
             }
         });

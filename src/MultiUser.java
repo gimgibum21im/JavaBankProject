@@ -14,6 +14,7 @@ public class MultiUser {
         user = newUser;
     }
 
+    /** UserDB안에 사용자가 존재하는지 알려주는 메소드 */
     public boolean isExist() {
         try {
             BufferedReader UserDB = new BufferedReader(new FileReader(fPathUserDB));

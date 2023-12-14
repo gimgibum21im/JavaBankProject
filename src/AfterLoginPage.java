@@ -16,7 +16,8 @@ public class AfterLoginPage extends JFrame {
 
     private MultiUserController multiUserController;
 
-    public AfterLoginPage() {
+    public AfterLoginPage(MultiUserController muc) {
+        multiUserController = muc;
         init();
         setDisplay();
         addListeners();
@@ -70,7 +71,7 @@ public class AfterLoginPage extends JFrame {
         btnOpenAccount.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // 계좌 개설 창 열기
-                new OpenAccountPage();
+                new OpenAccountPage(multiUserController);
                 dispose(); // 창닫기
             }
         });

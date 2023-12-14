@@ -17,7 +17,8 @@ public class OpenAccountPage extends JFrame {
 
     private MultiUserController multiUserController;
 
-    public OpenAccountPage() {
+    public OpenAccountPage(MultiUserController muc) {
+        multiUserController = muc;
         init();
         setDisplay();
         addListeners();
@@ -88,7 +89,7 @@ public class OpenAccountPage extends JFrame {
         // 뒤로가기 버튼 리스너
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new AfterLoginPage();
+                new AfterLoginPage(multiUserController);
                 dispose();
             }
         });

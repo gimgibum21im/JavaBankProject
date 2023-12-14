@@ -1,5 +1,4 @@
 import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -99,10 +98,9 @@ public class LoginPage extends JFrame {
                     User tempUser = new User(getTfId(), getTfPw());
                     multiUserController = new MultiUserController(tempUser);
                     multiUserController.processLogin();
+                    new AfterLoginPage(multiUserController);
                     dispose(); // 창닫기
                 }
-                new AfterLoginPage();
-                dispose();
             }
         });
 

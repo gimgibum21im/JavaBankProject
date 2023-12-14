@@ -7,8 +7,9 @@ import java.io.PrintWriter;
 
 public class MultiUser {
     // UserDB, AccouuntDB 관리
-    String fPathUserDB = "DB\\UserDB.txt";
-    User user;
+    private String fPathUserDB = "DB\\UserDB.txt";
+    private User user;
+    private String line;
 
     public MultiUser(User newUser) {
         user = newUser;
@@ -20,7 +21,7 @@ public class MultiUser {
             BufferedReader UserDB = new BufferedReader(new FileReader(fPathUserDB));
 
             while (true) {
-                String line = UserDB.readLine();
+                line = UserDB.readLine();
                 if (line == null)
                     break;
 

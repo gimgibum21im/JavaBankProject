@@ -101,6 +101,8 @@ public class LoginPage extends JFrame {
                     multiUserController.processLogin();
                     dispose(); // 창닫기
                 }
+                new AfterLoginPage();
+                dispose();
             }
         });
 

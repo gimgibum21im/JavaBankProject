@@ -9,14 +9,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class AfterLoginPage extends JFrame {
-    private JButton btnViewAccount;
-    private JButton btnOpenAccount;
-    private JButton btnLogOut;
+public class OpenAccountPage extends JFrame {
+    private JButton btnDeposit;
+    private JButton btn6Savings;
+    private JButton btn12Savings;
+    private JButton btnBack;
 
     private MultiUserController multiUserController;
 
-    public AfterLoginPage() {
+    public OpenAccountPage() {
         init();
         setDisplay();
         addListeners();
@@ -27,17 +28,21 @@ public class AfterLoginPage extends JFrame {
         // 사이즈 통일화
         Dimension btnSize = new Dimension(200, 50);
 
-        // 내 계좌 보기 버튼 생성
-        btnViewAccount = new JButton("내 계좌 보기");
-        btnViewAccount.setPreferredSize(btnSize);
+        // 예금 개설 버튼 생성
+        btnDeposit = new JButton("예금");
+        btnDeposit.setPreferredSize(btnSize);
 
-        // 계좌 개설 버튼 생성
-        btnOpenAccount = new JButton("계좌 개설");
-        btnOpenAccount.setPreferredSize(btnSize);
+        // 6개월 적금 개설 버튼 생성
+        btn6Savings = new JButton("6개월 적금");
+        btn6Savings.setPreferredSize(btnSize);
 
-        // 로그아웃 버튼 생성
-        btnLogOut = new JButton("로그아웃");
-        btnLogOut.setPreferredSize(btnSize);
+        // 12개월 적금 개설 버튼 생성
+        btn12Savings = new JButton("12개월 적금");
+        btn12Savings.setPreferredSize(btnSize);
+
+        // 뒤로가기 버튼 생성
+        btnBack = new JButton("뒤로가기");
+        btnBack.setPreferredSize(btnSize);
     }
 
     public void setDisplay() {
@@ -45,9 +50,10 @@ public class AfterLoginPage extends JFrame {
         FlowLayout flowLeft = new FlowLayout(FlowLayout.LEFT);
 
         JPanel pnl = new JPanel(flowLeft);
-        pnl.add(btnViewAccount);
-        pnl.add(btnOpenAccount);
-        pnl.add(btnLogOut);
+        pnl.add(btnDeposit);
+        pnl.add(btn6Savings);
+        pnl.add(btn12Savings);
+        pnl.add(btnBack);
 
         // 공백 생성
         pnl.setBorder(new EmptyBorder(0, 0, 0, 10));
@@ -58,27 +64,31 @@ public class AfterLoginPage extends JFrame {
 
     public void addListeners() {
 
-        // 내 계좌 보기 버튼 리스너
-        btnViewAccount.addActionListener(new ActionListener() {
+        // 예금 개설 버튼 리스너
+        btnDeposit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // 내 계좌 보기 창 열기
                 dispose();
             }
         });
 
-        // 계좌 개설 버튼 리스너
-        btnOpenAccount.addActionListener(new ActionListener() {
+        // 6개월 적금 개설 버튼 리스너
+        btn6Savings.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // 계좌 개설 창 열기
-                new OpenAccountPage();
                 dispose(); // 창닫기
             }
         });
 
-        // 로그 아웃 버튼 리스너
-        btnLogOut.addActionListener(new ActionListener() {
+        // 12개월 적금 버튼 리스너
+        btn12Savings.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new LoginPage();
+                dispose();
+            }
+        });
+
+        // 뒤로가기 버튼 리스너
+        btnBack.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new AfterLoginPage();
                 dispose();
             }
         });

@@ -18,11 +18,25 @@ public class MultiUserController {
         return false;
     }
 
-    public void processLogin() {
+    public boolean processLogin() {
         MultiUser multiUser = new MultiUser(user);
         if (multiUser.isExist()) {
-            System.out.println("존재하지 않음");
+            System.out.println("존재하지 함");
+
+            if (multiUser.checkPw()) {
+                System.out.println("pw 맞음");
+                setUser(multiUser.getDBUserInfo());
+                System.out.println("dbUser 가져옴");
+                return true;
+            } else
+                JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.");
         } else
             JOptionPane.showMessageDialog(null, "아이디가 틀렸습니다.");
+        return false;
+    }
+
+    public void setUser(User newUser) {
+        System.out.println("setuser");
+        user = newUser;
     }
 }

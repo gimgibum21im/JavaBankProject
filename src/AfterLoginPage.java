@@ -76,7 +76,7 @@ public class AfterLoginPage extends JFrame {
             }
         });
 
-        // 로그 아웃 버튼 리스너
+        // 로그아웃 버튼 리스너
         btnLogOut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new LoginPage();

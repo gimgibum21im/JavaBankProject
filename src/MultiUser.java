@@ -8,7 +8,9 @@ public class MultiUser {
     // UserDB, AccouuntDB 관리
     private String fPathUserDB = "DB\\UserDB.txt";
     private User user;
-    private String line;
+    private String line[];
+    private String userId;
+    private String userPw;
 
     public MultiUser(User newUser) {
         user = newUser;
@@ -20,12 +22,12 @@ public class MultiUser {
             BufferedReader UserDB = new BufferedReader(new FileReader(fPathUserDB));
 
             while (true) {
-                line = UserDB.readLine();
+                line = UserDB.readLine().split("\\s+");
                 if (line == null)
                     break;
 
-                String id = line.split("\\s+")[0];
-                if (user.getId().equals(id)) {
+                userId = line[0];
+                if (user.getId().equals(userId)) {
                     UserDB.close();
                     return true;
                 }
@@ -46,5 +48,37 @@ public class MultiUser {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+    }
+
+    public boolean checkPw() {
+        userPw = line[1];
+
+        if (userPw.equals(user.getPw()))
+            return true;
+        return false;
+    }
+
+    public User getDBUserInfo() {
+        User dbUser;
+        String userName = line[2];
+
+        int accountCnt = Integer.parseInt(line[3]);
+        if (accountCnt == 0) {
+            dbUser = new User(userId, userPw, userName);
+        }
+
+        else {
+            String accountSeqs = "";
+            for (int i = 4; i < 3 + accountCnt; i++) {
+                accountSeqs += line[i];
+                accountSeqs += " ";
+                System.out.println(accountSeqs);
+            }
+            accountSeqs += line[3 + accountCnt];
+
+            dbUser = new User(userId, userPw, userName, Integer.toString(accountCnt), accountSeqs);
+        }
+
+        return dbUser;
     }
 }

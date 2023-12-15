@@ -97,8 +97,8 @@ public class LoginPage extends JFrame {
                     System.out.println("login");
                     User tempUser = new User(getTfId(), getTfPw());
                     multiUserController = new MultiUserController(tempUser);
-                    multiUserController.processLogin();
-                    new AfterLoginPage(multiUserController);
+                    if (multiUserController.processLogin())
+                        new AfterLoginPage(multiUserController);
                     dispose(); // 창닫기
                 }
             }

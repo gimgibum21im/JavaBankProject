@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 public class MultiBankAccount {
     private boolean withdrawalStatus; // WDS
     private String accountNum;
@@ -15,12 +17,26 @@ public class MultiBankAccount {
     }
 
     public boolean deposit(int amount) {
-        if (amount <= 0)
-            return false;
+        boolean result = false;
+        if (amount < 0)
+            JOptionPane.showMessageDialog(null, "잘못된 입금액이라 무시합니다.");
         else {
             accountBalance += amount;
-            return true;
+            result = true;
         }
+        return result;
     }
 
+    public boolean withdraw(int amount) {
+        boolean result = false;
+        if (amount < 0)
+            JOptionPane.showMessageDialog(null, "잘못된 출금액이라 무시합니다.");
+        else if (amount > accountBalance)
+            JOptionPane.showMessageDialog(null, "잔고가 부족합니다.");
+        else {
+            accountBalance -= amount;
+            result = true;
+        }
+        return result;
+    }
 }

@@ -1,19 +1,19 @@
 import javax.swing.JOptionPane;
 
 public class BankAccount {
-    public String account_name;
-    private int balance;
+    private boolean withdrawalStatus; // WDS
+    private String accountNum;
+    private String accountHolder;
+    private int accountBalance;
+    private String password;
 
-    public BankAccount(String name, int initial_amount) {
-        account_name = name;
-        if (initial_amount >= 0)
-            balance = initial_amount;
-        else
-            balance = 0;
-    }
-
-    public int getBalance() {
-        return balance;
+    public BankAccount(boolean newWDS, String newAccountNum, String newAccountHolder, int newAccountBalance,
+            String newPw) {
+        withdrawalStatus = newWDS;
+        accountNum = newAccountNum;
+        accountHolder = newAccountHolder;
+        accountBalance = newAccountBalance;
+        password = newPw;
     }
 
     public boolean deposit(int amount) {
@@ -21,7 +21,7 @@ public class BankAccount {
         if (amount < 0)
             JOptionPane.showMessageDialog(null, "잘못된 입금액이라 무시합니다.");
         else {
-            balance = balance + amount;
+            accountBalance += amount;
             result = true;
         }
         return result;
@@ -31,12 +31,33 @@ public class BankAccount {
         boolean result = false;
         if (amount < 0)
             JOptionPane.showMessageDialog(null, "잘못된 출금액이라 무시합니다.");
-        else if (amount > balance)
+        else if (amount > accountBalance)
             JOptionPane.showMessageDialog(null, "잔고가 부족합니다.");
         else {
-            balance = balance - amount;
+            accountBalance -= amount;
             result = true;
         }
         return result;
     }
+
+    public boolean getWithdrawalStatus() {
+        return withdrawalStatus;
+    }
+
+    public String getAccountNum() {
+        return accountNum;
+    }
+
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
+    public int getAccountBalance() {
+        return accountBalance;
+    }
+
+    public String getPw() {
+        return password;
+    }
+
 }

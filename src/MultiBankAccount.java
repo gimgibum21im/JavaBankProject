@@ -1,3 +1,7 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.swing.JOptionPane;
 
 public class MultiBankAccount {
@@ -6,6 +10,8 @@ public class MultiBankAccount {
     private String accountHolder;
     private int accountBalance;
     private String password;
+
+    private String fPathAccountDB = "DB\\AccountDB.txt";
 
     public MultiBankAccount(boolean newWDS, String newAccountNum, String newAccountHolder, int newAccountBalance,
             String newPw) {
@@ -48,5 +54,19 @@ public class MultiBankAccount {
         if (verityPw.equals(password))
             return true;
         return false;
+    }
+
+    public void addDepositAccount() {
+        try {
+            PrintWriter AccountDB = new PrintWriter(new FileWriter(fPathAccountDB, true));
+            AccountDB.println(user.toString()); // Id, PW, Name, 계좌수, 계좌
+            AccountDB.close();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    public void addSavingsAccount() {
+
     }
 }

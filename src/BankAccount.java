@@ -40,8 +40,24 @@ public class BankAccount {
         return result;
     }
 
+    public boolean getWithdrawalStatus() {
+        return withdrawalStatus;
+    }
+
+    public String getAccountNum() {
+        return accountNum;
+    }
+
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
     public int getAccountBalance() {
         return accountBalance;
+    }
+
+    public String getPw() {
+        return password;
     }
 
 }

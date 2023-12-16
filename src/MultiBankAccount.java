@@ -39,4 +39,14 @@ public class MultiBankAccount {
         }
         return result;
     }
+
+    public int getAccountBalance() {
+        return accountBalance;
+    }
+
+    public boolean checkPw(String verityPw) {
+        if (verityPw.equals(password))
+            return true;
+        return false;
+    }
 }

@@ -1,7 +1,7 @@
 public class SavingsAccount extends BankAccount {
     private int TOTAL_DEPOSIT_COUNT;
     private int currentDepositCount;
-    private boolean doneImplement;
+    private boolean doneImplement; // impement를 받아는지
     private final double RATE = 0.4;
 
     // TDC = TOTAL_DEPOSIT_COUNT

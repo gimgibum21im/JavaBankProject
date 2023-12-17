@@ -1,3 +1,5 @@
+import java.util.Random;
+
 import javax.swing.JOptionPane;
 
 public class BankAccount {
@@ -7,6 +9,21 @@ public class BankAccount {
     public double accountBalance;
 
     public BankAccount(boolean newWDS, String newAccountNum, String newAccountHolder, double newAccountBalance) {
+        withdrawalStatus = newWDS;
+        accountNum = newAccountNum;
+        accountHolder = newAccountHolder;
+        accountBalance = newAccountBalance;
+    }
+
+    public BankAccount(boolean newWDS, String newAccountHolder) {
+        Random rd = new Random();
+
+        String newAccountNum = "";
+        for (int i = 0; i < 5; i++) {
+            newAccountNum += rd.nextInt(10) + "";
+        }
+        int newAccountBalance = 0;
+
         withdrawalStatus = newWDS;
         accountNum = newAccountNum;
         accountHolder = newAccountHolder;

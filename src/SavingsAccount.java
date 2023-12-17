@@ -14,6 +14,14 @@ public class SavingsAccount extends BankAccount {
         doneImplement = newDoneImplement;
     }
 
+    /** 개설용 */
+    public SavingsAccount(boolean newWDS, String newAccountHolder, int newTDC) {
+        super(newWDS, newAccountHolder);
+        TOTAL_DEPOSIT_COUNT = newTDC;
+        currentDepositCount = 0;
+        doneImplement = false;
+    }
+
     public void implement() {
         accountBalance += getAccountBalance() * (RATE * (double) (TOTAL_DEPOSIT_COUNT / 12));
     }

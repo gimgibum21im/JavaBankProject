@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -75,6 +76,8 @@ public class OpenAccountPage extends JFrame {
                 multiBankAccountController = new MultiBankAccountController(newDepositAccount);
                 multiBankAccountController.processOpenAccount();
 
+                JOptionPane.showMessageDialog(null, "계좌번호는: " + newDepositAccount.getAccountNum() + " 입니다.");
+
                 new AfterLoginPage(multiUserController);
                 dispose();
             }
@@ -89,6 +92,8 @@ public class OpenAccountPage extends JFrame {
                 multiBankAccountController = new MultiBankAccountController(newSavingsAccount);
                 multiBankAccountController.processOpenAccount();
 
+                JOptionPane.showMessageDialog(null, "계좌번호는: " + newSavingsAccount.getAccountNum() + " 입니다.");
+
                 new AfterLoginPage(multiUserController);
                 dispose(); // 창닫기
             }
@@ -102,6 +107,8 @@ public class OpenAccountPage extends JFrame {
 
                 multiBankAccountController = new MultiBankAccountController(newSavingsAccount);
                 multiBankAccountController.processOpenAccount();
+
+                JOptionPane.showMessageDialog(null, "계좌번호는: " + newSavingsAccount.getAccountNum() + " 입니다.");
 
                 new AfterLoginPage(multiUserController);
                 dispose();

@@ -77,6 +77,14 @@ public class User {
         return accountCount;
     }
 
+    public void setAccountSeqs(BankAccount[] as) {
+        accountSeqs = as;
+    }
+
+    public BankAccount[] getAccountSeqs() {
+        return accountSeqs;
+    }
+
     public String toString() {
         String str = getId() + " " + getPw() + " " + getName() + " " + getAccountCount() + " " + getAccountNums();
         return str;

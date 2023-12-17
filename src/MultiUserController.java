@@ -50,4 +50,13 @@ public class MultiUserController {
         JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.");
         return false;
     }
+
+    public void setUserAccountSeqs() {
+        BankAccount[] as = new MultiBankAccount(null).getDBInfo(user.getAccountNums().split("\\s+"));
+        user.setAccountSeqs(as);
+    }
+
+    public BankAccount[] getUserAccountSeqs() {
+        return user.getAccountSeqs();
+    }
 }

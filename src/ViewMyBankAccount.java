@@ -100,8 +100,23 @@ public class ViewMyBankAccount extends JFrame {
                     else if (multiUserController.checkPw(getTfPw())) {
                         try {
                             int bankAccount = Integer.parseInt(getTfBankAccount());
-                            new AfterLoginPage(multiUserController);
-                            dispose(); // 창닫기
+                            multiUserController.setUserAccountSeqs();
+                            ;
+                            MultiBankAccountController multiBankAccountController = null;
+
+                            BankAccount[] temp = multiUserController.getUserAccountSeqs();
+                            for (BankAccount account : temp) {
+                                if (account.getAccountNum().equals(Integer.toString(bankAccount))) {
+                                    multiBankAccountController = new MultiBankAccountController(account);
+                                    break;
+                                }
+                            }
+
+                            if (multiBankAccountController != null) {
+                                new DWPage(multiUserController, multiBankAccountController);
+                                dispose(); // 창닫기
+                            } else
+                                JOptionPane.showMessageDialog(null, "잘못된 계좌번호입니다.");
                         } catch (Exception e1) {
                             // TODO: handle exception
                             JOptionPane.showMessageDialog(null, "계좌번호를 숫자로 입력해 주세요.");

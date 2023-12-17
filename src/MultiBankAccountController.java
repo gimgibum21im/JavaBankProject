@@ -11,7 +11,7 @@ public class MultiBankAccountController {
         multiBankAccount.addAccount();
     }
 
-    public BankAccount[] getBankAccountInfo(String userBankAccountInfo) {
-        return multiBankAccount.getDBInfo(userBankAccountInfo.split("+\\s"));
+    public BankAccount geBankAccount() {
+        return bankAccount;
     }
 }

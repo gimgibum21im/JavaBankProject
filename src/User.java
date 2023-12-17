@@ -4,6 +4,7 @@ public class User {
     private String name;
     private String accountCount; // 계좌번호 개수
     private String accountNums; // 계좌번호
+    private BankAccount accountSeqs[];
 
     /**
      * 회원가입용 생성자

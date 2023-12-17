@@ -10,4 +10,8 @@ public class MultiBankAccountController {
     public void processOpenAccount() {
         multiBankAccount.addAccount();
     }
+
+    public BankAccount[] getBankAccountInfo(String userBankAccountInfo) {
+        return multiBankAccount.getDBInfo(userBankAccountInfo.split("+\\s"));
+    }
 }

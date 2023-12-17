@@ -1,5 +1,5 @@
-public class depositAccount extends BankAccount {
-    public depositAccount(boolean newWDS, String newAccountNum, String newAccountHolder, int newAccountBalance) {
+public class DepositAccount extends BankAccount {
+    public DepositAccount(boolean newWDS, String newAccountNum, String newAccountHolder, double newAccountBalance) {
         super(newWDS, newAccountNum, newAccountHolder, newAccountBalance);
     }
 }

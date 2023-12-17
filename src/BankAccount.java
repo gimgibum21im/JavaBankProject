@@ -4,9 +4,9 @@ public class BankAccount {
     private boolean withdrawalStatus; // WDS
     private String accountNum;
     private String accountHolder;
-    private int accountBalance;
+    public double accountBalance;
 
-    public BankAccount(boolean newWDS, String newAccountNum, String newAccountHolder, int newAccountBalance) {
+    public BankAccount(boolean newWDS, String newAccountNum, String newAccountHolder, double newAccountBalance) {
         withdrawalStatus = newWDS;
         accountNum = newAccountNum;
         accountHolder = newAccountHolder;
@@ -49,7 +49,7 @@ public class BankAccount {
         return accountHolder;
     }
 
-    public int getAccountBalance() {
+    public double getAccountBalance() {
         return accountBalance;
     }
 

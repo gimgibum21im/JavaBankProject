@@ -35,7 +35,7 @@ public class SavingsAccount extends BankAccount {
     }
 
     public String toString() {
-        return Boolean.toString(getWithdrawalStatus()) + " " + getAccountNum() + " " + getAccountBalance() + " "
+        return getAccountNum() + " " + Boolean.toString(getWithdrawalStatus()) + " " + getAccountBalance() + " "
                 + Boolean.toString(doneImplement) + " " + TOTAL_DEPOSIT_COUNT + " " + currentDepositCount;
     }
 }

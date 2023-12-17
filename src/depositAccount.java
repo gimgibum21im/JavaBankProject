@@ -8,6 +8,6 @@ public class DepositAccount extends BankAccount {
     }
 
     public String toString() {
-        return Boolean.toString(getWithdrawalStatus()) + " " + getAccountNum() + " " + getAccountBalance();
+        return getAccountNum() + " " + Boolean.toString(getWithdrawalStatus()) + " "  + getAccountBalance();
     }
 }

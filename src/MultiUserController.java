@@ -2,13 +2,14 @@ import javax.swing.JOptionPane;
 
 public class MultiUserController {
     private User user;
+    private MultiUser multiUser;
 
     public MultiUserController(User newUser) {
         user = newUser;
+        multiUser = new MultiUser(user);
     }
 
     public boolean processSignUp() {
-        MultiUser multiUser = new MultiUser(user);
         if (!multiUser.isExist()) {
             System.out.println("존재하지 않음");
             multiUser.addUser();
@@ -19,7 +20,6 @@ public class MultiUserController {
     }
 
     public boolean processLogin() {
-        MultiUser multiUser = new MultiUser(user);
         if (multiUser.isExist()) {
             System.out.println("존재하지 함");
 
@@ -42,5 +42,12 @@ public class MultiUserController {
 
     public void addAccountNum2User(BankAccount newAccount) {
         user.addAccount(newAccount);
+    }
+
+    public boolean checkPw(String pw) {
+        if (pw.equals(user.getPw()))
+            return true;
+        JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.");
+        return false;
     }
 }

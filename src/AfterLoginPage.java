@@ -63,6 +63,7 @@ public class AfterLoginPage extends JFrame {
         btnViewAccount.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // 내 계좌 보기 창 열기
+                new ViewMyBankAccount(multiUserController);
                 dispose();
             }
         });

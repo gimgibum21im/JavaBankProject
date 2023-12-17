@@ -6,4 +6,8 @@ public class DepositAccount extends BankAccount {
     public DepositAccount(boolean newWDS) {
         super(newWDS);
     }
+
+    public String toString() {
+        return Boolean.toString(getWithdrawalStatus()) + " " + getAccountNum() + " " + getAccountBalance();
+    }
 }

@@ -79,6 +79,7 @@ public class OpenAccountPage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 SavingsAccount newSavingsAccount = new SavingsAccount(false, 6);
                 multiUserController.addAccountNum2User(newSavingsAccount);
+                new MultiBankAccount(newSavingsAccount).addAccount();
                 dispose(); // 창닫기
             }
         });

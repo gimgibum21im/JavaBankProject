@@ -1,15 +1,39 @@
+import java.util.Random;
+
 import javax.swing.JOptionPane;
 
 public class BankAccount {
     private boolean withdrawalStatus; // WDS
     private String accountNum;
-    private String accountHolder;
     public double accountBalance;
 
-    public BankAccount(boolean newWDS, String newAccountNum, String newAccountHolder, double newAccountBalance) {
+    /**
+     * 
+     * @param newWDS            withdroawalStauts 출금 가능여부
+     * @param newAccountNum
+     * @param newAccountBalance
+     */
+    public BankAccount(boolean newWDS, String newAccountNum, double newAccountBalance) {
         withdrawalStatus = newWDS;
         accountNum = newAccountNum;
-        accountHolder = newAccountHolder;
+        accountBalance = newAccountBalance;
+    }
+
+    /**
+     * 
+     * @param newWDS withdroawalStauts 출금 가능여부
+     */
+    public BankAccount(boolean newWDS) {
+        Random rd = new Random();
+
+        String newAccountNum = "";
+        for (int i = 0; i < 5; i++) {
+            newAccountNum += rd.nextInt(10) + "";
+        }
+        int newAccountBalance = 0;
+
+        withdrawalStatus = newWDS;
+        accountNum = newAccountNum;
         accountBalance = newAccountBalance;
     }
 
@@ -43,10 +67,6 @@ public class BankAccount {
 
     public String getAccountNum() {
         return accountNum;
-    }
-
-    public String getAccountHolder() {
-        return accountHolder;
     }
 
     public double getAccountBalance() {

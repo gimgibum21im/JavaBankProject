@@ -51,6 +51,11 @@ public class User {
         accountNums = null;
     }
 
+    public void addAccount(BankAccount newAccount) {
+        accountNums += " " + newAccount.getAccountNum();
+        accountCount = (Integer.parseInt(accountCount) + 1) + "";
+    }
+
     public String getId() {
         return id;
     }

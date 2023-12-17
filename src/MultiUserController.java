@@ -39,4 +39,8 @@ public class MultiUserController {
         System.out.println("setuser");
         user = newUser;
     }
+
+    public void addAccountNum2User(BankAccount newAccount) {
+        user.addAccount(newAccount);
+    }
 }

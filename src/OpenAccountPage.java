@@ -16,6 +16,7 @@ public class OpenAccountPage extends JFrame {
     private JButton btnBack;
 
     private MultiUserController multiUserController;
+    private MultiBankAccountController multiBankAccountController;
 
     public OpenAccountPage(MultiUserController muc) {
         multiUserController = muc;
@@ -70,6 +71,11 @@ public class OpenAccountPage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 DepositAccount newDepositAccount = new DepositAccount(true);
                 multiUserController.addAccountNum2User(newDepositAccount);
+
+                multiBankAccountController = new MultiBankAccountController(newDepositAccount);
+                multiBankAccountController.processOpenAccount();
+
+                new AfterLoginPage(multiUserController);
                 dispose();
             }
         });
@@ -79,7 +85,11 @@ public class OpenAccountPage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 SavingsAccount newSavingsAccount = new SavingsAccount(false, 6);
                 multiUserController.addAccountNum2User(newSavingsAccount);
-                new MultiBankAccount(newSavingsAccount).addAccount();
+
+                multiBankAccountController = new MultiBankAccountController(newSavingsAccount);
+                multiBankAccountController.processOpenAccount();
+
+                new AfterLoginPage(multiUserController);
                 dispose(); // 창닫기
             }
         });
@@ -89,6 +99,11 @@ public class OpenAccountPage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 SavingsAccount newSavingsAccount = new SavingsAccount(false, 12);
                 multiUserController.addAccountNum2User(newSavingsAccount);
+
+                multiBankAccountController = new MultiBankAccountController(newSavingsAccount);
+                multiBankAccountController.processOpenAccount();
+
+                new AfterLoginPage(multiUserController);
                 dispose();
             }
         });

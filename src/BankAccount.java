@@ -5,7 +5,6 @@ public class BankAccount {
     private String accountNum;
     private String accountHolder;
     private int accountBalance;
-    private String password;
 
     public BankAccount(boolean newWDS, String newAccountNum, String newAccountHolder, int newAccountBalance,
             String newPw) {
@@ -13,7 +12,6 @@ public class BankAccount {
         accountNum = newAccountNum;
         accountHolder = newAccountHolder;
         accountBalance = newAccountBalance;
-        password = newPw;
     }
 
     public boolean deposit(int amount) {
@@ -55,9 +53,4 @@ public class BankAccount {
     public int getAccountBalance() {
         return accountBalance;
     }
-
-    public String getPw() {
-        return password;
-    }
-
 }

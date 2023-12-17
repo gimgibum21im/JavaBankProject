@@ -69,6 +69,7 @@ public class OpenAccountPage extends JFrame {
         btnDeposit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 DepositAccount newDepositAccount = new DepositAccount(true);
+                multiUserController.addAccountNum2User(newDepositAccount);
                 dispose();
             }
         });
@@ -77,6 +78,7 @@ public class OpenAccountPage extends JFrame {
         btn6Savings.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SavingsAccount newSavingsAccount = new SavingsAccount(false, 6);
+                multiUserController.addAccountNum2User(newSavingsAccount);
                 dispose(); // 창닫기
             }
         });
@@ -85,6 +87,7 @@ public class OpenAccountPage extends JFrame {
         btn12Savings.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SavingsAccount newSavingsAccount = new SavingsAccount(false, 12);
+                multiUserController.addAccountNum2User(newSavingsAccount);
                 dispose();
             }
         });

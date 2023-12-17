@@ -41,6 +41,6 @@ public class MultiUserController {
     }
 
     public void addAccountNum2User(BankAccount newAccount) {
-
+        user.addAccount(newAccount);
     }
 }

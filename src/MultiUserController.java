@@ -43,4 +43,11 @@ public class MultiUserController {
     public void addAccountNum2User(BankAccount newAccount) {
         user.addAccount(newAccount);
     }
+
+    public boolean checkPw(String pw) {
+        if (pw.equals(user.getPw()))
+            return true;
+        JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.");
+        return false;
+    }
 }

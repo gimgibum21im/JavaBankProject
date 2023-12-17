@@ -12,11 +12,13 @@ public class SavingsAccount extends BankAccount {
         currentDepositCount = newCDC;
     }
 
-    public boolean implement() {
-        if (TOTAL_DEPOSIT_COUNT == currentDepositCount) {
-            accountBalance += getAccountBalance() * (RATE * (double) (TOTAL_DEPOSIT_COUNT / 12));
+    public void implement() {
+        accountBalance += getAccountBalance() * (RATE * (double) (TOTAL_DEPOSIT_COUNT / 12));
+    }
+
+    public boolean compareDepositCount() {
+        if (currentDepositCount == TOTAL_DEPOSIT_COUNT)
             return true;
-        } else
-            return false;
+        return false;
     }
 }

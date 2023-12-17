@@ -68,6 +68,7 @@ public class OpenAccountPage extends JFrame {
         // 예금 개설 버튼 리스너
         btnDeposit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                DepositAccount newDepositAccount = new DepositAccount(true);
                 dispose();
             }
         });
@@ -75,6 +76,7 @@ public class OpenAccountPage extends JFrame {
         // 6개월 적금 개설 버튼 리스너
         btn6Savings.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                SavingsAccount newSavingsAccount = new SavingsAccount(false, 6);
                 dispose(); // 창닫기
             }
         });
@@ -82,6 +84,7 @@ public class OpenAccountPage extends JFrame {
         // 12개월 적금 버튼 리스너
         btn12Savings.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                SavingsAccount newSavingsAccount = new SavingsAccount(false, 12);
                 dispose();
             }
         });

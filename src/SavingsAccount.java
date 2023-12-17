@@ -6,17 +6,17 @@ public class SavingsAccount extends BankAccount {
 
     // TDC = TOTAL_DEPOSIT_COUNT
     // CDC = currentDepositCount
-    public SavingsAccount(boolean newWDS, String newAccountNum, String newAccountHolder, double newAccountBalance,
+    public SavingsAccount(boolean newWDS, String newAccountNum, double newAccountBalance,
             int newTDC, int newCDC, boolean newDoneImplement) {
-        super(newWDS, newAccountNum, newAccountHolder, newAccountBalance);
+        super(newWDS, newAccountNum, newAccountBalance);
         TOTAL_DEPOSIT_COUNT = newTDC;
         currentDepositCount = newCDC;
         doneImplement = newDoneImplement;
     }
 
     /** 개설용 */
-    public SavingsAccount(boolean newWDS, String newAccountHolder, int newTDC) {
-        super(newWDS, newAccountHolder);
+    public SavingsAccount(boolean newWDS, int newTDC) {
+        super(newWDS);
         TOTAL_DEPOSIT_COUNT = newTDC;
         currentDepositCount = 0;
         doneImplement = false;

@@ -22,10 +22,11 @@ public class MultiUser {
             BufferedReader UserDB = new BufferedReader(new FileReader(fPathUserDB));
 
             while (true) {
-                line = UserDB.readLine().split("\\s+");
-                if (line == null)
+                String temp = UserDB.readLine();
+                if (temp == null)
                     break;
 
+                line = temp.split("\\s+");
                 userId = line[0];
                 if (user.getId().equals(userId)) {
                     UserDB.close();
